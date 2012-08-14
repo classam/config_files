@@ -22,9 +22,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Font
-set gfn=Inconsolata:h14
-
 " Pretty, pretty slate
 set background=dark
 colorscheme slate
