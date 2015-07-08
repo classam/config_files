@@ -22,6 +22,11 @@ Plugin 'tpope/vim-fugitive'
 "  :Gblame
 Plugin 'scrooloose/nerdtree'
 " Replaces the default file explorer with a much better file explorer
+Plugin 'jistr/vim-nerdtree-tabs'
+" Makes that explorer work with tabs
+Plugin 'tpope/vim-commentary'
+" gc to comment something you've selected with V
+" or gcc for a line
 Plugin 'tpope/vim-surround'
 " adds 'surround' features
 "  cs"' (change surrounding " to ')
@@ -32,6 +37,8 @@ Plugin 'tpope/vim-surround'
 "  ysiw<em> (add <em>surrounding</em> in word)
 "  use visual mode to select some space, then hit S" to surround that space in
 "       quotes
+Plugin 'tpope/vim-repeat'
+" when you use 'surround' or 'comment', you can repeat that activity with the . key
 Plugin 'bling/vim-airline'
 "  Add bling to the line along the bottom of the page
 "   if you have fugitive installed, will display the current branch
@@ -40,6 +47,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mileszs/ack.vim'
 "  Add ack to vim. (Make sure ack is installed)
 "  :Ack <whatevs>
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,11 +60,21 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " If the only window left open is a NERD Tree, close it
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let g:nerdtree_tabs_open_on_console_startup=1
 
 " Turn on airline tabs
 let g:airline#extensions#tabline#enabled = 1
 " And make sure airline shows up right away
 set laststatus=2
+
+" Python comments with a #
+autocmd FileType python set commentstring=#\ %s
+
+" Navigate through windows using ctrl-j and ctrl-k
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 " Guess the correct indentation level
 set autoindent
@@ -95,7 +113,6 @@ set guioptions-=T
 set guioptions+=b
 set nowrap
 
-" If you're using MacVim and want a nice font
 set gfn=Inconsolata:h18
 
 set mouse=a
