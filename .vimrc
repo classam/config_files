@@ -60,7 +60,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " If the only window left open is a NERD Tree, close it
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let g:nerdtree_tabs_open_on_console_startup=1
+" let g:nerdtree_tabs_open_on_console_startup=1
 
 " Turn on airline tabs
 let g:airline#extensions#tabline#enabled = 1
@@ -86,8 +86,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-autocmd FileType javascript set tabstop=2|set softtabstop=2|set shiftwidth=2
-
 " Show matching braces
 set showmatch
 
@@ -112,8 +110,6 @@ syntax enable
 set guioptions-=T
 set guioptions+=b
 set nowrap
-
-set gfn=Inconsolata:h18
 
 set mouse=a
 
