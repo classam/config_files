@@ -6,6 +6,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set term=linux
+
 " VUNDLE HO
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -56,10 +58,10 @@ filetype plugin indent on    " required
 " Launch vim and run :PluginInstall
 
 " If we just open vim on it's own, activate the NERD Tree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " If the only window left open is a NERD Tree, close it
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " let g:nerdtree_tabs_open_on_console_startup=1
 
 " Turn on airline tabs
